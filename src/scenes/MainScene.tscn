@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/DeathScreen.tscn" type="PackedScene" id=4]
 
 [node name="MainScene" type="Node2D"]
 
@@ -38,10 +39,10 @@ scale = Vector2( 8, 1 )
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 1375, 225 )
+position = Vector2( 2225, 175 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 1525, 425 )
+position = Vector2( 1375, 975 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 175, 950 )
@@ -61,3 +62,8 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DeathScreen" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false

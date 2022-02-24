@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var collider: CollisionShape2D = get_node('Collider')
 onready var camera: Camera2D = get_node('Camera')
+onready var deathScreen: Control = get_node('/root/MainScene/CanvasLayer/DeathScreen')
 # onready var sprite: Sprite = get_node('Sprite')
 
 export var initialJumpTimer = 0.2
@@ -24,6 +25,7 @@ var friction = GROUND_FRICTION
 var velocity = Vector2()
 var jumpTimer = 0
 var groundedTimer = 0
+var isDead = false
 
 
 func _ready():
@@ -35,9 +37,18 @@ func _ready():
 		enemy.connect('touched_player', self, '_touched_enemy')
 
 func _touched_enemy(_enemy):
-	reload_scene()
+	handle_death()
 
 func _physics_process(delta):
+	# Gravity
+	velocity.y += GRAVITY
+
+	# Stop here if dead
+	if isDead:
+		velocity.x = 0
+		velocity = move_and_slide(velocity, Vector2.UP, true)
+		return
+
 	# Movement
 	if Input.is_action_pressed('move_left') && velocity.x >= -MAX_VELOCITY:
 		velocity.x -= ACCELERATION
@@ -76,9 +87,6 @@ func _physics_process(delta):
 		elif (0 < velocity.x && velocity.x <= friction) || (-friction <= velocity.x && velocity.x < 0):
 			velocity.x = 0
 
-	# Gravity
-	velocity.y += GRAVITY
-
 	# OOB
 	if Input.is_action_just_pressed('go_oob'):
 		collider.disabled = true
@@ -88,22 +96,28 @@ func _physics_process(delta):
 	# Death outside camera area
 	var cameraCenter = camera.get_camera_screen_center()
 	if self.position.y > cameraCenter.y + CAMERA_HALF_HEIGHT:
-		reload_scene()
+		handle_death()
 	elif self.position.y < cameraCenter.y - CAMERA_HALF_HEIGHT:
-		reload_scene()
+		handle_death()
 	elif self.position.x > cameraCenter.x + CAMERA_HALF_WIDTH:
-		reload_scene()
+		handle_death()
 	elif self.position.x < cameraCenter.x - CAMERA_HALF_WIDTH:
-		reload_scene()
+		handle_death()
 
 	# Enemy collison
 	for i in get_slide_count():
 		var collided = get_slide_collision(i).collider
 		if collided is Node && collided.is_in_group('Enemy'):
-			reload_scene()
+			handle_death()
 
 	# Apply movement
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
-func reload_scene():
-	var _result = get_tree().change_scene(get_tree().current_scene.filename)
+func handle_death():
+	if isDead:
+		return
+	collider.disabled = true
+	deathScreen.visible = true
+	velocity.x = 0
+	velocity.y = -(CAMERA_HEIGHT * 0.75)
+	isDead = true
