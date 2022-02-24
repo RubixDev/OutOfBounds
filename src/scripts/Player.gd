@@ -4,20 +4,25 @@ onready var collider: CollisionShape2D = get_node('Collider')
 onready var camera: Camera2D = get_node('Camera')
 # onready var sprite: Sprite = get_node('Sprite')
 
+export var initialJumpTimer = 0.2
+export var initialGroundedTimer = 0.1
+
 const CAMERA_WIDTH = 1920
 const CAMERA_HEIGHT = 1080
 const CAMERA_HALF_WIDTH = CAMERA_WIDTH / 2
 const CAMERA_HALF_HEIGHT = CAMERA_HEIGHT / 2
 
-const MAX_VELOCITY = CAMERA_HEIGHT
+const MAX_VELOCITY = CAMERA_HEIGHT * 0.8
 const ACCELERATION = CAMERA_HEIGHT / 12
 const GRAVITY = CAMERA_HEIGHT / 20
 const JUMP_VELOCITY = CAMERA_HEIGHT * 1.4
 const GROUND_FRICTION = ACCELERATION * 1.5
-const AIR_FRICTION = ACCELERATION / 5
+const AIR_FRICTION = ACCELERATION * 0.15
 
 var friction = GROUND_FRICTION
 var velocity = Vector2()
+var jumpTimer = initialJumpTimer
+var groundedTimer = initialGroundedTimer
 
 
 func _ready():
@@ -25,7 +30,7 @@ func _ready():
 	camera.limit_right -= int(camera.offset.x)
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	# Movement
 	if Input.is_action_pressed('move_left') && velocity.x >= -MAX_VELOCITY:
 		velocity.x -= ACCELERATION
@@ -33,8 +38,20 @@ func _physics_process(_delta):
 	if Input.is_action_pressed('move_right') && velocity.x <= MAX_VELOCITY:
 		velocity.x += ACCELERATION
 		# sprite.flip_h = false
-	if Input.is_action_just_pressed('jump') && is_on_floor():
-		velocity.y -= JUMP_VELOCITY
+
+	# Jumping
+	jumpTimer -= delta
+	groundedTimer -= delta
+	if Input.is_action_just_pressed('jump'):
+		jumpTimer = initialJumpTimer
+	if is_on_floor():
+		groundedTimer = initialGroundedTimer
+	if jumpTimer > 0 && groundedTimer > 0:
+		velocity.y = -JUMP_VELOCITY
+		jumpTimer = 0
+		groundedTimer = 0
+	if Input.is_action_just_released('jump') && velocity.y < 0:
+		velocity.y *= 0.5
 
 	# Friction
 	if !Input.is_action_pressed('move_left') && !Input.is_action_pressed('move_right'):
