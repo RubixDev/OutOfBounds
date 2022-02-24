@@ -37,7 +37,7 @@ func _ready():
 		enemy.connect('touched_player', self, '_touched_enemy')
 
 func _touched_enemy(_enemy):
-	handle_death()
+	handle_death(true)
 
 func _physics_process(delta):
 	# Gravity
@@ -96,28 +96,30 @@ func _physics_process(delta):
 	# Death outside camera area
 	var cameraCenter = camera.get_camera_screen_center()
 	if self.position.y > cameraCenter.y + CAMERA_HALF_HEIGHT:
-		handle_death()
+		handle_death(false)
 	elif self.position.y < cameraCenter.y - CAMERA_HALF_HEIGHT:
-		handle_death()
+		handle_death(false)
 	elif self.position.x > cameraCenter.x + CAMERA_HALF_WIDTH:
-		handle_death()
+		handle_death(false)
 	elif self.position.x < cameraCenter.x - CAMERA_HALF_WIDTH:
-		handle_death()
+		handle_death(false)
 
 	# Enemy collison
 	for i in get_slide_count():
 		var collided = get_slide_collision(i).collider
 		if collided is Node && collided.is_in_group('Enemy'):
-			handle_death()
+			handle_death(true)
 
 	# Apply movement
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
-func handle_death():
+func handle_death(animate: bool):
 	if isDead:
 		return
 	collider.disabled = true
 	deathScreen.visible = true
+	deathScreen.get_node('MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton').grab_focus()
 	velocity.x = 0
-	velocity.y = -(CAMERA_HEIGHT * 0.75)
+	if animate:
+		velocity.y = -(CAMERA_HEIGHT * 0.75)
 	isDead = true

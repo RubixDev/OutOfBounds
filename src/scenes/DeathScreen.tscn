@@ -58,5 +58,6 @@ margin_bottom = 100.0
 margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 300, 100 )
+mouse_default_cursor_shape = 2
 text = "Restart"
 script = ExtResource( 2 )
