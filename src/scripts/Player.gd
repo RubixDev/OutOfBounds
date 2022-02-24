@@ -8,22 +8,22 @@ export var initialJumpTimer = 0.2
 export var initialGroundedTimer = 0.1
 export var cameraOffset = 250
 
-const CAMERA_WIDTH = 1920
-const CAMERA_HEIGHT = 1080
-const CAMERA_HALF_WIDTH = CAMERA_WIDTH / 2
-const CAMERA_HALF_HEIGHT = CAMERA_HEIGHT / 2
+var CAMERA_WIDTH = ProjectSettings.get_setting('display/window/size/width')
+var CAMERA_HEIGHT = ProjectSettings.get_setting('display/window/size/height')
+var CAMERA_HALF_WIDTH = CAMERA_WIDTH / 2.0
+var CAMERA_HALF_HEIGHT = CAMERA_HEIGHT / 2.0
 
-const MAX_VELOCITY = CAMERA_HEIGHT * 0.8
-const ACCELERATION = CAMERA_HEIGHT / 12
-const GRAVITY = CAMERA_HEIGHT / 20
-const JUMP_VELOCITY = CAMERA_HEIGHT * 1.4
-const GROUND_FRICTION = ACCELERATION * 1.5
-const AIR_FRICTION = ACCELERATION * 0.15
+var MAX_VELOCITY = CAMERA_HEIGHT * 0.8
+var ACCELERATION = CAMERA_HEIGHT / 12
+var GRAVITY = CAMERA_HEIGHT / 20
+var JUMP_VELOCITY = CAMERA_HEIGHT * 1.4
+var GROUND_FRICTION = ACCELERATION * 1.5
+var AIR_FRICTION = ACCELERATION * 0.15
 
 var friction = GROUND_FRICTION
 var velocity = Vector2()
-var jumpTimer = initialJumpTimer
-var groundedTimer = initialGroundedTimer
+var jumpTimer = 0
+var groundedTimer = 0
 
 
 func _ready():
@@ -31,6 +31,11 @@ func _ready():
 	camera.limit_left -= cameraOffset
 	camera.limit_right -= cameraOffset
 
+	for enemy in get_tree().get_nodes_in_group('Enemy'):
+		enemy.connect('touched_player', self, '_touched_enemy')
+
+func _touched_enemy(_enemy):
+	reload_scene()
 
 func _physics_process(delta):
 	# Movement
@@ -91,6 +96,13 @@ func _physics_process(delta):
 	elif self.position.x < cameraCenter.x - CAMERA_HALF_WIDTH:
 		reload_scene()
 
+	# Enemy collison
+	for i in get_slide_count():
+		var collided = get_slide_collision(i).collider
+		if collided is Node && collided.is_in_group('Enemy'):
+			reload_scene()
+
+	# Apply movement
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
 func reload_scene():
