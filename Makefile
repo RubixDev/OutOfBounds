@@ -18,3 +18,6 @@ windows:
 web:
 	mkdir -p export/web/
 	cd $(src_dir) && godot --no-window --export web
+android:
+	mkdir -p export/android/
+	cd $(src_dir) && godot --no-window --export android
