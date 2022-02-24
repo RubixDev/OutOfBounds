@@ -10,8 +10,11 @@ debug:
 release: linux windows web
 
 linux:
+	mkdir -p export/linux/
 	cd $(src_dir) && godot --no-window --export linux
 windows:
+	mkdir -p export/windows/
 	cd $(src_dir) && godot --no-window --export windows
 web:
+	mkdir -p export/web/
 	cd $(src_dir) && godot --no-window --export web
