@@ -7,7 +7,7 @@ run:
 debug:
 	cd $(src_dir) && godot --no-window --export-debug linux
 
-release: linux windows web
+release: linux windows web android
 
 linux:
 	mkdir -p export/linux/
