@@ -17,8 +17,7 @@ position = Vector2( 1900, 1050 )
 scale = Vector2( 78, 2 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 1 )]
-position = Vector2( 0, 525 )
-scale = Vector2( 2, 23 )
+scale = Vector2( 2, 40 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 1 )]
 position = Vector2( 3800, 525 )
@@ -45,12 +44,12 @@ position = Vector2( 1375, 225 )
 position = Vector2( 1525, 425 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 365, 419 )
+position = Vector2( 175, 950 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true
 limit_left = 0
-limit_top = 0
+limit_top = -800
 limit_right = 3840
 limit_bottom = 1080
 drag_margin_h_enabled = true
@@ -59,6 +58,6 @@ smoothing_speed = 15.0
 drag_margin_left = 0.3
 drag_margin_top = 0.6
 drag_margin_right = 0.0
-drag_margin_bottom = 0.6
+drag_margin_bottom = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
