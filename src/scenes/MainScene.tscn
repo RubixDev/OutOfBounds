@@ -6,38 +6,37 @@
 [node name="MainScene" type="Node2D"]
 
 [node name="Wall1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960, 0 )
-scale = Vector2( 192, 10 )
+position = Vector2( 900, 0 )
+scale = Vector2( 38, 2 )
 
 [node name="Wall2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1920, 1080 )
-scale = Vector2( 384, 10 )
+position = Vector2( 1900, 1050 )
+scale = Vector2( 78, 2 )
 
 [node name="Wall3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 540 )
-scale = Vector2( 10, 108 )
+position = Vector2( 0, 525 )
+scale = Vector2( 2, 23 )
 
 [node name="Wall4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3840, 540 )
-scale = Vector2( 10, 108 )
+position = Vector2( 3800, 525 )
+scale = Vector2( 2, 23 )
 
 [node name="Platform1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1250, 805 )
-scale = Vector2( 40, 5 )
+position = Vector2( 1400, 725 )
+scale = Vector2( 8, 1 )
 
 [node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1750, 555 )
-scale = Vector2( 40, 5 )
+position = Vector2( 1800, 475 )
+scale = Vector2( 8, 1 )
 
 [node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2250, 305 )
-scale = Vector2( 40, 5 )
+position = Vector2( 2200, 225 )
+scale = Vector2( 8, 1 )
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 446, 246 )
+position = Vector2( 365, 419 )
 
 [node name="Camera" type="Camera2D" parent="RigidBody2D"]
-offset = Vector2( 250, 0 )
 current = true
 limit_left = 0
 limit_top = 0

@@ -6,6 +6,7 @@ onready var camera: Camera2D = get_node('Camera')
 
 export var initialJumpTimer = 0.2
 export var initialGroundedTimer = 0.1
+export var cameraOffset = 250
 
 const CAMERA_WIDTH = 1920
 const CAMERA_HEIGHT = 1080
@@ -26,8 +27,9 @@ var groundedTimer = initialGroundedTimer
 
 
 func _ready():
-	camera.limit_left -= int(camera.offset.x)
-	camera.limit_right -= int(camera.offset.x)
+	camera.offset.x = cameraOffset
+	camera.limit_left -= cameraOffset
+	camera.limit_right -= cameraOffset
 
 
 func _physics_process(delta):
@@ -50,6 +52,8 @@ func _physics_process(delta):
 		velocity.y = -JUMP_VELOCITY
 		jumpTimer = 0
 		groundedTimer = 0
+		if !Input.is_action_pressed('jump'):
+			velocity.y *= 0.6
 	if Input.is_action_just_released('jump') && velocity.y < 0:
 		velocity.y *= 0.5
 
