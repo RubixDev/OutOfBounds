@@ -6,45 +6,47 @@
 [node name="MainScene" type="Node2D"]
 
 [node name="Wall1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 0 )
-scale = Vector2( 16, 1 )
+position = Vector2( 960, 0 )
+scale = Vector2( 192, 10 )
 
 [node name="Wall2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1024, 600 )
-scale = Vector2( 32, 1 )
+position = Vector2( 1920, 1080 )
+scale = Vector2( 384, 10 )
 
 [node name="Wall3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 300 )
-scale = Vector2( 1, 10 )
+position = Vector2( 0, 540 )
+scale = Vector2( 10, 108 )
 
 [node name="Wall4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2048, 300 )
-scale = Vector2( 1, 10 )
+position = Vector2( 3840, 540 )
+scale = Vector2( 10, 108 )
 
-[node name="Wall5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 400 )
-scale = Vector2( 5, 0.5 )
+[node name="Platform1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1250, 805 )
+scale = Vector2( 40, 5 )
 
-[node name="Wall6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1363, 128 )
-scale = Vector2( 5, 0.5 )
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1750, 555 )
+scale = Vector2( 40, 5 )
 
-[node name="Wall7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1024, 301 )
-scale = Vector2( 5, 0.5 )
+[node name="Platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2250, 305 )
+scale = Vector2( 40, 5 )
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 446, 246 )
 
 [node name="Camera" type="Camera2D" parent="RigidBody2D"]
+offset = Vector2( 250, 0 )
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 2048
-limit_bottom = 600
+limit_right = 3840
+limit_bottom = 1080
 drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 smoothing_speed = 15.0
-drag_margin_left = 0.4
+drag_margin_left = 0.3
 drag_margin_top = 0.6
 drag_margin_right = 0.0
 drag_margin_bottom = 0.6

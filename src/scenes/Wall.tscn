@@ -6,15 +6,15 @@ colors = PoolColorArray( 0.101961, 0.0980392, 0.12549, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
-width = 64
+width = 10
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 5, 5 )
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1, 64 )
+scale = Vector2( 1, 10 )
 texture = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
