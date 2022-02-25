@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/LevelCanvas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall1" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 900, 0 )
+scale = Vector2( 38, 2 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1825, 1050 )
+scale = Vector2( 75, 2 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 12 )]
+scale = Vector2( 2, 40 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2950, 0 )
+scale = Vector2( 2, 40 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3650, 0 )
+scale = Vector2( 2, 40 )
+
+[node name="Platform1" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1550, 725 )
+scale = Vector2( 8, 1 )
+
+[node name="Platform2" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1950, 475 )
+scale = Vector2( 8, 1 )
+
+[node name="Platform3" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2350, 225 )
+scale = Vector2( 8, 1 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2125, 425 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 1175, 975 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 325, -75 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 175, 950 )
+cameraOffset = 100
+
+[node name="Camera" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_top = -800
+limit_right = 3650
+limit_bottom = 1080
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_speed = 15.0
+drag_margin_left = 0.3
+drag_margin_top = 0.6
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="LevelCanvas" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3100, 900 )
