@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/screens/PauseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/screens/TouchControls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/DeathScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/screens/CompleteScreen.tscn" type="PackedScene" id=4]
+
+[node name="LevelCanvas" type="CanvasLayer"]
+
+[node name="TouchControls" parent="." instance=ExtResource( 2 )]
+
+[node name="DeathScreen" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="CompleteScreen" parent="." instance=ExtResource( 4 )]
+visible = false

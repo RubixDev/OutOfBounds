@@ -5,6 +5,7 @@ export var continueButtonPath: NodePath
 
 onready var continueButton: Button = get_node(continueButtonPath)
 onready var deathScreen: Control = get_node('../DeathScreen')
+onready var completeScreen: Control = get_node('../CompleteScreen')
 
 
 func show():
@@ -18,7 +19,7 @@ func hide():
 
 
 func _input(event):
-	if event.is_action_pressed('pause') && !deathScreen.visible:
+	if event.is_action_pressed('pause') && !deathScreen.visible && !completeScreen.visible:
 		if self.visible:
 			hide()
 		else:

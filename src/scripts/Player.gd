@@ -4,6 +4,7 @@ onready var collider: CollisionShape2D = get_node('Collider')
 onready var camera: Camera2D = get_node('Camera')
 onready var deathScreen: Control = get_tree().get_nodes_in_group('DeathScreen')[0]
 onready var pauseMenu: Control = get_tree().get_nodes_in_group('PauseMenu')[0]
+onready var completeScreen: Control = get_tree().get_nodes_in_group('CompleteScreen')[0]
 
 export var initialJumpTimer = 0.2
 export var initialGroundedTimer = 0.1
@@ -25,7 +26,7 @@ var friction = GROUND_FRICTION
 var velocity = Vector2()
 var jumpTimer = 0
 var groundedTimer = 0
-var isDead = false
+var controllable = true
 
 
 func _ready():
@@ -36,15 +37,23 @@ func _ready():
 	for enemy in get_tree().get_nodes_in_group('Enemy'):
 		enemy.connect('touched_player', self, '_touched_enemy')
 
+	for goal in get_tree().get_nodes_in_group('Goal'):
+		goal.connect('body_entered', self, '_goal_touched')
+
 func _touched_enemy(_enemy):
 	handle_death(true)
+
+func _goal_touched(body):
+	if body.name == 'Player':
+		controllable = false
+		completeScreen.show()
 
 func _physics_process(delta):
 	# Gravity
 	velocity.y += GRAVITY
 
-	# Stop here if dead
-	if isDead:
+	# Stop here if not controllable
+	if !controllable:
 		velocity.x = 0
 		velocity = move_and_slide(velocity, Vector2.UP, true)
 		return
@@ -112,11 +121,11 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
 func handle_death(animate: bool):
-	if isDead:
+	if !controllable:
 		return
 	collider.disabled = true
 	deathScreen.show()
 	velocity.x = 0
 	if animate:
 		velocity.y = -(CAMERA_HEIGHT * 0.75)
-	isDead = true
+	controllable = false

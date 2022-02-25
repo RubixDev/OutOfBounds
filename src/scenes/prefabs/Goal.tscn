@@ -2,20 +2,19 @@
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.101961, 0.0980392, 0.12549, 1 )
+colors = PoolColorArray( 0.87451, 0.627451, 0.101961, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
-width = 50
+width = 100
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25, 25 )
+extents = Vector2( 50, 50 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
-z_index = 20
+[node name="Goal" type="Area2D" groups=["Goal"]]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1, 50 )
+scale = Vector2( 1, 100 )
 texture = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
