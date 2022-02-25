@@ -52,9 +52,22 @@ func _physics_process(delta):
 	# Gravity
 	velocity.y += GRAVITY
 
+	# Friction
+	if (!Input.is_action_pressed('move_left') && !Input.is_action_pressed('move_right')) || !controllable:
+		if is_on_floor():
+			friction = GROUND_FRICTION
+		else:
+			friction = AIR_FRICTION
+
+		if velocity.x > friction:
+			velocity.x -= friction
+		elif velocity.x < -friction:
+			velocity.x += friction
+		elif (0 < velocity.x && velocity.x <= friction) || (-friction <= velocity.x && velocity.x < 0):
+			velocity.x = 0
+
 	# Stop here if not controllable
 	if !controllable:
-		velocity.x = 0
 		velocity = move_and_slide(velocity, Vector2.UP, true)
 		return
 
@@ -79,20 +92,6 @@ func _physics_process(delta):
 			velocity.y *= 0.6
 	if Input.is_action_just_released('jump') && velocity.y < 0:
 		velocity.y *= 0.5
-
-	# Friction
-	if !Input.is_action_pressed('move_left') && !Input.is_action_pressed('move_right'):
-		if is_on_floor():
-			friction = GROUND_FRICTION
-		else:
-			friction = AIR_FRICTION
-
-		if velocity.x > friction:
-			velocity.x -= friction
-		elif velocity.x < -friction:
-			velocity.x += friction
-		elif (0 < velocity.x && velocity.x <= friction) || (-friction <= velocity.x && velocity.x < 0):
-			velocity.x = 0
 
 	# OOB
 	if Input.is_action_just_pressed('go_oob'):
@@ -125,7 +124,6 @@ func handle_death(animate: bool):
 		return
 	collider.disabled = true
 	deathScreen.show()
-	velocity.x = 0
 	if animate:
 		velocity.y = -(CAMERA_HEIGHT * 0.75)
 	controllable = false
