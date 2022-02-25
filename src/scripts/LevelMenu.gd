@@ -14,6 +14,8 @@ func _ready():
 		button.rect_min_size.y = 100
 		button.connect('pressed', self, '_load_level', [i])
 		levelButtonsGrid.add_child(button)
+		if i == 1:
+			button.grab_focus()
 
 
 func _load_level(num):
