@@ -1,14 +1,16 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fonts/Josefin_Sans/120pt/JosefinSans-Bold_120pt.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scripts/RestartButton.gd" type="Script" id=2]
+[ext_resource path="res://scripts/DeathScreen.gd" type="Script" id=3]
 
-[node name="DeathScreen" type="Control"]
+[node name="DeathScreen" type="Control" groups=["DeathScreen"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+restartButtonPath = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -60,4 +62,5 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 300, 100 )
 mouse_default_cursor_shape = 2
 text = "Restart"
-script = ExtResource( 2 )
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton" to="." method="_restart_level"]

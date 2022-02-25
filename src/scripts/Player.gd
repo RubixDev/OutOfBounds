@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var collider: CollisionShape2D = get_node('Collider')
 onready var camera: Camera2D = get_node('Camera')
-onready var deathScreen: Control = get_node('/root/MainScene/CanvasLayer/DeathScreen')
+onready var deathScreen: Control = get_tree().get_nodes_in_group('DeathScreen')[0]
 # onready var sprite: Sprite = get_node('Sprite')
 
 export var initialJumpTimer = 0.2
@@ -117,8 +117,7 @@ func handle_death(animate: bool):
 	if isDead:
 		return
 	collider.disabled = true
-	deathScreen.visible = true
-	deathScreen.get_node('MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton').grab_focus()
+	deathScreen.show()
 	velocity.x = 0
 	if animate:
 		velocity.y = -(CAMERA_HEIGHT * 0.75)
