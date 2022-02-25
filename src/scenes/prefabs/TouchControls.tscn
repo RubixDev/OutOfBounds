@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/controls/right.png" type="Texture" id=1]
 [ext_resource path="res://sprites/controls/left.png" type="Texture" id=2]
@@ -8,9 +8,14 @@
 [ext_resource path="res://sprites/controls/pressed_blank.png" type="Texture" id=6]
 [ext_resource path="res://sprites/controls/pressed_right.png" type="Texture" id=7]
 [ext_resource path="res://sprites/controls/pressed_left.png" type="Texture" id=8]
+[ext_resource path="res://sprites/controls/pause.png" type="Texture" id=9]
+[ext_resource path="res://sprites/controls/pressed_pause.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 500, 300 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 300.0
 
 [node name="TouchControls" type="Node"]
 
@@ -48,4 +53,13 @@ normal = ExtResource( 3 )
 pressed = ExtResource( 6 )
 shape = SubResource( 5 )
 action = "go_oob"
+visibility_mode = 1
+
+[node name="Pause" type="TouchScreenButton" parent="."]
+position = Vector2( 1750, 50 )
+scale = Vector2( 0.166667, 0.166667 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 10 )
+shape = SubResource( 6 )
+action = "pause"
 visibility_mode = 1
