@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/Josefin_Sans/120pt/JosefinSans-Bold_120pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
 
 [node name="PauseMenu" type="Control" groups=["PauseMenu"]]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,35 +55,32 @@ uppercase = true
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 220.0
 margin_right = 1820.0
-margin_bottom = 570.0
+margin_bottom = 540.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 760.0
-margin_right = 1060.0
-margin_bottom = 350.0
+margin_left = 759.0
+margin_right = 1061.0
+margin_bottom = 320.0
 custom_constants/separation = 25
 alignment = 1
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 100 )
+margin_right = 302.0
+margin_bottom = 90.0
 mouse_default_cursor_shape = 2
 text = "Continue"
 
 [node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 125.0
-margin_right = 300.0
-margin_bottom = 225.0
-rect_min_size = Vector2( 300, 100 )
+margin_top = 115.0
+margin_right = 302.0
+margin_bottom = 205.0
 mouse_default_cursor_shape = 2
 text = "Restart"
 
 [node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 250.0
-margin_right = 300.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 300, 100 )
+margin_top = 230.0
+margin_right = 302.0
+margin_bottom = 320.0
 mouse_default_cursor_shape = 2
 text = "Menu"
 

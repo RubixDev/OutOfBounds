@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Josefin_Sans/60pt/JosefinSans-Regular_60pt.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.262745, 0.619608, 0.709804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 20.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.27451, 0.282353, 0.54902, 1 )
+shadow_color = Color( 0, 0, 0, 0.313726 )
+shadow_size = 1
+shadow_offset = Vector2( 5, 10 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 20.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.309804, 0.321569, 0.623529, 1 )
+shadow_color = Color( 0, 0, 0, 0.313726 )
+shadow_size = 1
+shadow_offset = Vector2( 5, 10 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 20.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.23, 0.237667, 0.46, 1 )
+shadow_color = Color( 0, 0, 0, 0.313726 )
+shadow_size = 1
+shadow_offset = Vector2( 5, 10 )
+
+[resource]
+default_font = ExtResource( 1 )
+Button/fonts/font = ExtResource( 1 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 4 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 3 )
