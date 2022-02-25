@@ -11,8 +11,8 @@ gradient = SubResource( 2 )
 width = 50
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 25.0
-height = 49.0
+radius = 24.5
+height = 50.0
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 10
