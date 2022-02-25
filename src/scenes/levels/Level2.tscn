@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Walls" type="Node" parent="."]
 
