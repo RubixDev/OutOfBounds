@@ -4,7 +4,6 @@ onready var collider: CollisionShape2D = get_node('Collider')
 onready var camera: Camera2D = get_node('Camera')
 onready var deathScreen: Control = get_tree().get_nodes_in_group('DeathScreen')[0]
 onready var pauseMenu: Control = get_tree().get_nodes_in_group('PauseMenu')[0]
-# onready var sprite: Sprite = get_node('Sprite')
 
 export var initialJumpTimer = 0.2
 export var initialGroundedTimer = 0.1
@@ -53,10 +52,8 @@ func _physics_process(delta):
 	# Movement
 	if Input.is_action_pressed('move_left') && velocity.x >= -MAX_VELOCITY:
 		velocity.x -= ACCELERATION
-		# sprite.flip_h = true
 	if Input.is_action_pressed('move_right') && velocity.x <= MAX_VELOCITY:
 		velocity.x += ACCELERATION
-		# sprite.flip_h = false
 
 	# Jumping
 	jumpTimer -= delta
