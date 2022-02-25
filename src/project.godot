@@ -12,7 +12,8 @@ config_version=4
 
 config/name="Out of Bounds"
 run/main_scene="res://scenes/LevelMenu.tscn"
-boot_splash/image="res://sprites/RubixDev.png"
+boot_splash/image="res://sprites/splash.png"
+boot_splash/bg_color=Color( 0.196078, 0.196078, 0.227451, 1 )
 config/icon="res://sprites/logo.png"
 
 [display]
