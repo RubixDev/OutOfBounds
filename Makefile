@@ -17,7 +17,7 @@ linux:
 windows:
 	mkdir -p export/windows/
 	cd $(src_dir) && godot --no-window --export windows
-	cd export && tar -czvf windows.tar.gz windows/
+	cd export && zip -r9 windows.zip windows
 web:
 	mkdir -p export/web/
 	cd $(src_dir) && godot --no-window --export web
