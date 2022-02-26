@@ -17,6 +17,9 @@ height = 50.0
 [node name="Player" type="KinematicBody2D"]
 z_index = 10
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1, 100 )
