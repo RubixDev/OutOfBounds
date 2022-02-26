@@ -8,7 +8,7 @@ debug:
 	cd $(src_dir) && godot --no-window --export-debug linux
 
 release: linux windows web android
-	cd export && tar -czvf all.tar.gz linux.tar.gz windows.tar.gz web.tar.gz android.tar.gz
+	cd export && tar -czvf all.tar.gz linux.tar.gz windows.zip web.tar.gz android.tar.gz
 
 linux:
 	mkdir -p export/linux/
