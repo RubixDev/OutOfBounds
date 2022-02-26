@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/Josefin_Sans/120pt/JosefinSans-Bold_120pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sprites/logo/logo.png" type="Texture" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/prefabs/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=6]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.513726, 0.2, 0.2, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 50
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
@@ -15,7 +29,7 @@ __meta__ = {
 }
 playButtonPath = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Button")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 200.0
@@ -26,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer"]
 margin_right = 1520.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 1 )
@@ -35,33 +49,33 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer"]
 margin_top = 220.0
 margin_right = 1520.0
 margin_bottom = 720.0
 custom_constants/separation = 250
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer"]
 margin_left = 297.0
 margin_right = 473.0
 margin_bottom = 500.0
 custom_constants/separation = 25
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 147.0
 margin_right = 176.0
 margin_bottom = 237.0
 text = "Play"
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 262.0
 margin_right = 176.0
 margin_bottom = 352.0
 text = "Exit"
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer"]
 margin_left = 723.0
 margin_right = 1223.0
 margin_bottom = 500.0
@@ -69,5 +83,41 @@ rect_min_size = Vector2( 500, 500 )
 texture = ExtResource( 2 )
 expand = true
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_play"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_exit"]
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1600, 975 )
+scale = Vector2( 6, 1 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1650, 675 )
+scale = Vector2( 6, 1 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1700, 825 )
+scale = Vector2( 2, 1 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1775, 850 )
+scale = Vector2( 1, 6 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1475, 800 )
+scale = Vector2( 1, 6 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1725, 775 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1575, 925 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1675, 600 )
+scale = Vector2( 1, 100 )
+texture = SubResource( 3 )
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/MainMenu" method="_play"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="CanvasLayer/MainMenu" method="_exit"]
