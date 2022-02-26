@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
 
-[node name="Level1" type="Node2D"]
+[node name="Level" type="Node2D"]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -15,15 +15,24 @@ position = Vector2( 900, 0 )
 scale = Vector2( 38, 2 )
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 1475, 1050 )
-scale = Vector2( 61, 2 )
+position = Vector2( 1825, 1050 )
+scale = Vector2( 75, 2 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 12 )]
-scale = Vector2( 2, 40 )
+position = Vector2( 0, 125 )
+scale = Vector2( 2, 35 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 2950, 0 )
-scale = Vector2( 2, 40 )
+position = Vector2( 3250, 350 )
+scale = Vector2( 2, 26 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3650, 125 )
+scale = Vector2( 2, 35 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1825, -800 )
+scale = Vector2( 75, 2 )
 
 [node name="Platform1" parent="Walls" instance=ExtResource( 12 )]
 position = Vector2( 1550, 725 )
@@ -37,6 +46,10 @@ scale = Vector2( 8, 1 )
 position = Vector2( 2350, 225 )
 scale = Vector2( 8, 1 )
 
+[node name="Platform4" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2100, -325 )
+scale = Vector2( 60, 1 )
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 1 )]
@@ -46,7 +59,7 @@ position = Vector2( 2125, 425 )
 position = Vector2( 1175, 975 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 325, -75 )
+position = Vector2( 825, -75 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 175, 950 )
@@ -56,7 +69,7 @@ cameraOffset = 100
 current = true
 limit_left = 0
 limit_top = -800
-limit_right = 2950
+limit_right = 3650
 limit_bottom = 1080
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -71,4 +84,4 @@ editor_draw_drag_margin = true
 [node name="LevelCanvas" parent="." instance=ExtResource( 3 )]
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 200, -150 )
+position = Vector2( 3500, -450 )

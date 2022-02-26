@@ -12,8 +12,7 @@ func show():
 
 
 func _next_level():
-	var currentSceneName = get_tree().root.get_child(0).name
-	var currentLevel = int(currentSceneName.replace('Level', ''))
+	var currentLevel = int(get_tree().current_scene.filename.replace('.tscn', '').split('Level')[-1])
 	var nextLevelResourceName = 'res://scenes/levels/Level' + str(currentLevel + 1) + '.tscn'
 	if ResourceLoader.exists(nextLevelResourceName):
 		print('Loading level ', currentLevel + 1, ': ', get_tree().change_scene(nextLevelResourceName))
