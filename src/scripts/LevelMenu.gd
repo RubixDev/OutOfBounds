@@ -17,6 +17,8 @@ func _ready():
 		if i == 1:
 			button.grab_focus()
 
-
 func _load_level(num):
 	print('Loading level ', num, ': ', get_tree().change_scene('res://scenes/levels/Level' + str(num) + '.tscn'))
+
+func _back():
+	print('Loading main menu: ', get_tree().change_scene('res://scenes/MainMenu.tscn'))
