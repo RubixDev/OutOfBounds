@@ -15,7 +15,7 @@ run/main_scene="res://scenes/MainMenu.tscn"
 boot_splash/image="res://sprites/splash.png"
 boot_splash/bg_color=Color( 0.196078, 0.196078, 0.227451, 1 )
 config/icon="res://sprites/logo/logo.png"
-config/windows_native_icon="res://sprites/logo.ico"
+config/windows_native_icon="res://sprites/logo/logo.ico"
 
 [display]
 
