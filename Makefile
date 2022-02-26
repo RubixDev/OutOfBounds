@@ -22,6 +22,8 @@ web:
 	mkdir -p export/web/
 	cd $(src_dir) && godot --no-window --export web
 	cd export && tar -czvf web.tar.gz web/
+	cd export/web && zip -r9 web.zip ./*
+	mv export/web/web.zip export/web.zip
 android:
 	mkdir -p export/android/
 	cd $(src_dir) && godot --no-window --export-debug android
