@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/prefabs/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/screens/LevelCanvas.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://KeyPromptSystem/KeyPrompt.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
@@ -85,3 +86,14 @@ editor_draw_drag_margin = true
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3500, -450 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="KeyPrompt" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 750.0
+margin_top = 550.0
+margin_right = 852.0
+margin_bottom = 652.0
+TEXT = "Hold $jump to jump"

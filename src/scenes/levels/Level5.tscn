@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/LevelCanvas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://KeyPromptSystem/KeyPrompt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/prefabs/InvisWall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
+
+[node name="Level" type="Node2D"]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1500, 1950 )
+scale = Vector2( 60, 2 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 5800, 1950 )
+scale = Vector2( 60, 2 )
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3650, 1650 )
+scale = Vector2( 14, 2 )
+
+[node name="Wall15" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3225, -200 )
+scale = Vector2( 5, 2 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -50, 975 )
+scale = Vector2( 2, 41 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 7350, 975 )
+scale = Vector2( 2, 41 )
+
+[node name="InvisWall" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 7050, 1625 )
+scale = Vector2( 10, 1 )
+
+[node name="InvisWall3" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 7050, 1325 )
+scale = Vector2( 10, 1 )
+
+[node name="InvisWall4" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 5300, 1025 )
+scale = Vector2( 80, 1 )
+
+[node name="InvisWall2" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 6775, 1350 )
+scale = Vector2( 1, 12 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 1275, 1875 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 5725, 1875 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 5900, 1850 )
+scale = Vector2( 2, 2 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 3300, -500 )
+scale = Vector2( 2, 10 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 275, 1850 )
+cameraOffset = 100
+
+[node name="Camera" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 7350
+limit_bottom = 1950
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_speed = 15.0
+drag_margin_left = 0.3
+drag_margin_top = 0.6
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="LevelCanvas" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3350, 900 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="KeyPrompt" parent="CanvasLayer" instance=ExtResource( 6 )]
+margin_left = 6525.0
+margin_top = 1550.0
+margin_right = 6627.0
+margin_bottom = 1652.0
+TEXT = "$jump + $go_oob"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 6825.0
+margin_top = 450.0
+margin_right = 7231.0
+margin_bottom = 510.0
+theme = ExtResource( 5 )
+text = "Now left again"
+__meta__ = {
+"_edit_use_anchors_": false
+}

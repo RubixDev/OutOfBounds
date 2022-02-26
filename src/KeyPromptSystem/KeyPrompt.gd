@@ -62,7 +62,6 @@ func update_contents(controllerType, force=false):
 			label.text = part
 			self.add_child(label)
 		else:
-			var clips = []
 			for input in InputMap.get_action_list(part):
 				var sprite = TextureRect.new()
 
@@ -84,6 +83,8 @@ func update_contents(controllerType, force=false):
 					if mouse_properties != null:
 						sprite.rect_position = get_frame_pos(KEYBOARD_FRAMES[MOUSE_BUTTON_NAMES[mouse_properties.button_index]], KEYBOARD_FRAME_COLUMNS)
 					else:
+						if !(key_name in KEYBOARD_FRAMES):
+							continue
 						sprite.rect_position = get_frame_pos(KEYBOARD_FRAMES[key_name], KEYBOARD_FRAME_COLUMNS)
 				else:
 					var button_properties: InputEventJoypadButton = null
@@ -119,16 +120,7 @@ func update_contents(controllerType, force=false):
 				clip.rect_size = Vector2(102, 102)
 				clip.rect_min_size = Vector2(102, 102)
 				clip.add_child(sprite)
-				clips.append(clip)
-
-			var clipIndex = 0
-			for clip in clips:
 				self.add_child(clip)
-				if clipIndex != clips.size() - 1:
-					var slash = Label.new()
-					slash.text = '/'
-					self.add_child(slash)
-				clipIndex += 1
 
 		partIndex += 1
 
