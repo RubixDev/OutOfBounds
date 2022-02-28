@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/screens/LevelCanvas.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
@@ -286,3 +287,14 @@ position = Vector2( 2250, 1800 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enable = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 475.0
+margin_top = 1800.0
+margin_right = 1054.0
+margin_bottom = 1860.0
+theme = ExtResource( 1 )
+text = "Find the shortest way"
+__meta__ = {
+"_edit_use_anchors_": false
+}
