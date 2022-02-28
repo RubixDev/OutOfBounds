@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/prefabs/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/screens/LevelCanvas.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/prefabs/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
-[ext_resource path="res://KeyPromptSystem/KeyPrompt.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/prefabs/InvisWall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/prefabs/Wall.tscn" type="PackedScene" id=12]
 
@@ -48,10 +47,6 @@ scale = Vector2( 10, 1 )
 [node name="InvisWall4" parent="Walls" instance=ExtResource( 7 )]
 position = Vector2( 5300, 1025 )
 scale = Vector2( 80, 1 )
-
-[node name="InvisWall2" parent="Walls" instance=ExtResource( 7 )]
-position = Vector2( 6775, 1350 )
-scale = Vector2( 1, 12 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -98,13 +93,6 @@ position = Vector2( 3350, 900 )
 layer = -1
 follow_viewport_enable = true
 
-[node name="KeyPrompt" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = 6525.0
-margin_top = 1550.0
-margin_right = 6627.0
-margin_bottom = 1652.0
-TEXT = "$jump + $go_oob"
-
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_left = 6825.0
 margin_top = 450.0
@@ -112,6 +100,17 @@ margin_right = 7231.0
 margin_bottom = 510.0
 theme = ExtResource( 5 )
 text = "Now left again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 7025.0
+margin_top = 1200.0
+margin_right = 7242.0
+margin_bottom = 1260.0
+theme = ExtResource( 5 )
+text = "Up here"
 __meta__ = {
 "_edit_use_anchors_": false
 }
