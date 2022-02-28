@@ -1,5 +1,5 @@
 src_dir = src/
-main_scene = scenes/LevelMenu.tscn
+main_scene = scenes/MainMenu.tscn
 
 run:
 	cd $(src_dir) && godot $(main_scene)
