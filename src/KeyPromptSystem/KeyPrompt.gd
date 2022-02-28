@@ -18,9 +18,6 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	ControlTypeStorage.connect('update_prompts', self, 'update_contents')
 
-# func _update_prompt(controllerType, lastControllerType):
-# 	update_contents(controllerType, lastControllerType)
-
 func update_contents(controllerType, lastControllerType, force=false):
 	if controllerType == lastControllerType && !force:
 		return
