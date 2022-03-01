@@ -105,9 +105,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 2650.0
+margin_left = 2825.0
 margin_top = -600.0
-margin_right = 3394.0
+margin_right = 3569.0
 margin_bottom = -498.0
 grow_horizontal = 2
 theme = ExtResource( 6 )
