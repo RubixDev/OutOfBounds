@@ -17,8 +17,8 @@ position = Vector2( 1500, 1950 )
 scale = Vector2( 60, 2 )
 
 [node name="Wall5" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 5800, 1950 )
-scale = Vector2( 60, 2 )
+position = Vector2( 5300, 1950 )
+scale = Vector2( 40, 2 )
 
 [node name="Wall14" parent="Walls" instance=ExtResource( 12 )]
 position = Vector2( 3650, 1650 )
@@ -33,20 +33,24 @@ position = Vector2( -50, 975 )
 scale = Vector2( 2, 41 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7350, 975 )
+position = Vector2( 6350, 975 )
 scale = Vector2( 2, 41 )
 
 [node name="InvisWall" parent="Walls" instance=ExtResource( 7 )]
-position = Vector2( 7050, 1625 )
+position = Vector2( 6050, 1625 )
 scale = Vector2( 10, 1 )
 
 [node name="InvisWall3" parent="Walls" instance=ExtResource( 7 )]
-position = Vector2( 7050, 1325 )
+position = Vector2( 6050, 1325 )
 scale = Vector2( 10, 1 )
 
+[node name="InvisWall5" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 5775, 1350 )
+scale = Vector2( 1, 12 )
+
 [node name="InvisWall4" parent="Walls" instance=ExtResource( 7 )]
-position = Vector2( 5300, 1025 )
-scale = Vector2( 80, 1 )
+position = Vector2( 4800, 1025 )
+scale = Vector2( 60, 1 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -72,7 +76,7 @@ cameraOffset = 100
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 7350
+limit_right = 6350
 limit_bottom = 1950
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -94,9 +98,9 @@ layer = -1
 follow_viewport_enable = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 6825.0
+margin_left = 5825.0
 margin_top = 450.0
-margin_right = 7231.0
+margin_right = 6231.0
 margin_bottom = 510.0
 theme = ExtResource( 5 )
 text = "Now left again"
@@ -105,9 +109,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
-margin_left = 7025.0
+margin_left = 6025.0
 margin_top = 1200.0
-margin_right = 7242.0
+margin_right = 6242.0
 margin_bottom = 1260.0
 theme = ExtResource( 5 )
 text = "Up here"
