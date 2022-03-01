@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-nextButtonPath = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/NextButton")
+nextButtonPath = NodePath("VBoxContainer/CenterContainer/VBoxContainer/NextButton")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -22,27 +22,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 50.0
 margin_top = 200.0
 margin_right = -50.0
 margin_bottom = -50.0
+custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 1820.0
-margin_bottom = 830.0
-custom_constants/separation = 100
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1820.0
-margin_bottom = 120.0
-
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 1820.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 1 )
@@ -51,38 +43,46 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 220.0
+[node name="Time" type="Label" parent="VBoxContainer"]
+margin_top = 170.0
 margin_right = 1820.0
-margin_bottom = 540.0
+margin_bottom = 230.0
+text = "00:00.000"
+align = 1
+valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 280.0
+margin_right = 1820.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer"]
 margin_left = 700.0
 margin_right = 1120.0
 margin_bottom = 320.0
 custom_constants/separation = 25
 alignment = 1
 
-[node name="NextButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="NextButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
 margin_right = 420.0
 margin_bottom = 90.0
 mouse_default_cursor_shape = 2
 text = "Next Level"
 
-[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 115.0
 margin_right = 420.0
 margin_bottom = 205.0
 mouse_default_cursor_shape = 2
 text = "Restart Level"
 
-[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 230.0
 margin_right = 420.0
 margin_bottom = 320.0
 mouse_default_cursor_shape = 2
 text = "Menu"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/NextButton" to="." method="_next_level"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton" to="." method="_restart_level"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/MenuButton" to="." method="_load_menu"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/VBoxContainer/NextButton" to="." method="_next_level"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/VBoxContainer/RestartButton" to="." method="_restart_level"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/VBoxContainer/MenuButton" to="." method="_load_menu"]

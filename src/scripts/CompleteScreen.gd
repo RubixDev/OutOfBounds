@@ -6,7 +6,8 @@ export var nextButtonPath: NodePath
 onready var nextButton: Button = get_node(nextButtonPath)
 
 
-func show():
+func open(time: String):
+	$VBoxContainer/Time.text = time
 	self.visible = true
 	nextButton.grab_focus()
 
