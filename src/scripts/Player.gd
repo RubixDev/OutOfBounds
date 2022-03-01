@@ -56,6 +56,7 @@ func _goal_touched(body):
 		time_str = time_str.substr(0, 2) + ':' + time_str.substr(2, 2) + '.' + time_str.substr(4)
 
 		completeScreen.open(time_str)
+		GameManager.save_time(get_tree().current_scene.filename.replace('.tscn', '').split('/')[-1], time)
 
 func _physics_process(delta):
 	# Gravity
