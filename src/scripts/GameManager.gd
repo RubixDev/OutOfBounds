@@ -21,5 +21,13 @@ func save_time(level: String, time: int):
 func get_time(level: String) -> int:
     if level in completion_times:
         return completion_times[level]
-    else:
-        return 9999999
+    return 9999999
+
+func get_time_str(level: String) -> String:
+    return time_as_str(get_time(level))
+
+func time_as_str(time: int) -> String:
+    var time_str: String = str(time).pad_zeros(7)
+    if time_str.length() > 7:
+        return '-'
+    return time_str.substr(0, 2) + ':' + time_str.substr(2, 2) + '.' + time_str.substr(4)
