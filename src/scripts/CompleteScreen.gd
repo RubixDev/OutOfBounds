@@ -21,7 +21,7 @@ func _next_level():
 		_load_menu()
 
 func _restart_level():
-	print('Reloading level: ', get_tree().change_scene(get_tree().current_scene.filename))
+	print('Reloading level: ', get_tree().reload_current_scene())
 
 func _load_menu():
 	print('Loading level menu: ', get_tree().change_scene('res://scenes/LevelMenu.tscn'))

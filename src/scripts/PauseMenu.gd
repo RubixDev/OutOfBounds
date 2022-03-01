@@ -29,7 +29,7 @@ func _continue():
 	hide()
 
 func _restart_level():
-	print('Reloading level: ', get_tree().change_scene(get_tree().current_scene.filename))
+	print('Reloading level: ', get_tree().reload_current_scene())
 	get_tree().paused = false
 
 func _load_menu():

@@ -12,7 +12,7 @@ func show():
 
 
 func _restart_level():
-	print('Reloading level: ', get_tree().change_scene(get_tree().current_scene.filename))
+	print('Reloading level: ', get_tree().reload_current_scene())
 
 
 func _load_menu():
