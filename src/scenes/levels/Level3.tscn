@@ -11,132 +11,97 @@
 
 [node name="Walls" type="Node" parent="."]
 
+[node name="Wall1" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1850, 0 )
+scale = Vector2( 72, 2 )
+
 [node name="Wall2" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 3700, 1050 )
-scale = Vector2( 150, 2 )
+position = Vector2( 1350, 1950 )
+scale = Vector2( 52, 2 )
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3300, 1950 )
+scale = Vector2( 14, 2 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 0, 700 )
-scale = Vector2( 2, 12 )
+position = Vector2( 0, 975 )
+scale = Vector2( 2, 41 )
 
 [node name="Wall5" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7400, 500 )
-scale = Vector2( 2, 20 )
+position = Vector2( 425, 900 )
+scale = Vector2( 5, 30 )
 
 [node name="Wall6" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 3550, 200 )
-scale = Vector2( 144, 8 )
+position = Vector2( 875, 900 )
+scale = Vector2( 1, 18 )
 
 [node name="Wall7" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7250, 775 )
-scale = Vector2( 4, 1 )
-
-[node name="Wall9" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7250, 525 )
-scale = Vector2( 4, 1 )
-
-[node name="Wall10" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7250, 275 )
-scale = Vector2( 4, 1 )
-
-[node name="Wall11" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7250, 25 )
-scale = Vector2( 4, 1 )
+position = Vector2( 1225, 900 )
+scale = Vector2( 1, 18 )
 
 [node name="Wall8" parent="Walls" instance=ExtResource( 12 )]
-position = Vector2( 7100, 600 )
-scale = Vector2( 2, 8 )
+position = Vector2( 1575, 900 )
+scale = Vector2( 1, 18 )
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1925, 900 )
+scale = Vector2( 1, 18 )
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2275, 900 )
+scale = Vector2( 1, 18 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2625, 1175 )
+scale = Vector2( 1, 29 )
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 2975, 1175 )
+scale = Vector2( 1, 29 )
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3325, 900 )
+scale = Vector2( 1, 18 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 3700, 975 )
+scale = Vector2( 2, 41 )
+
+[node name="Platform1" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 175, 1325 )
+scale = Vector2( 5, 1 )
+
+[node name="Platform5" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 175, 1625 )
+scale = Vector2( 5, 1 )
+
+[node name="Platform2" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 175, 1025 )
+scale = Vector2( 5, 1 )
+
+[node name="Platform3" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 175, 725 )
+scale = Vector2( 5, 1 )
+
+[node name="Platform4" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 1850, 425 )
+scale = Vector2( 72, 1 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 825, 975 )
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1675, 975 )
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1775, 875 )
-scale = Vector2( 1, 5 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1875, 975 )
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2675, 950 )
-scale = Vector2( 1, 2 )
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 3075, 950 )
-scale = Vector2( 1, 2 )
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 3950, 750 )
-scale = Vector2( 2, 10 )
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 4675, 700 )
-scale = Vector2( 3, 12 )
-
-[node name="Enemy12" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 7300, 950 )
-scale = Vector2( 2, 2 )
-
-[node name="Enemy15" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 7150, 950 )
-scale = Vector2( 2, 2 )
-
-[node name="Enemy16" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 5250, 950 )
-scale = Vector2( 2, 2 )
-
-[node name="Enemy20" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 5725, 925 )
-scale = Vector2( 3, 3 )
-
-[node name="Enemy21" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6675, 975 )
-
-[node name="Enemy22" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6075, 975 )
-
-[node name="Enemy23" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6175, 975 )
-
-[node name="Enemy24" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6275, 975 )
-
-[node name="Enemy25" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6375, 975 )
-
-[node name="Enemy26" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6475, 975 )
-
-[node name="Enemy27" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 6575, 975 )
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2775, 900 )
-scale = Vector2( 1, 4 )
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2975, 900 )
-scale = Vector2( 1, 4 )
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2875, 850 )
-scale = Vector2( 1, 6 )
+position = Vector2( 3325, 1875 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 175, 950 )
+position = Vector2( 625, 350 )
 cameraOffset = 100
 
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 7400
-limit_bottom = 1080
+limit_right = 3700
+limit_bottom = 1950
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_speed = 15.0
@@ -150,19 +115,20 @@ editor_draw_drag_margin = true
 [node name="LevelCanvas" parent="." instance=ExtResource( 3 )]
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 7250, 150 )
+position = Vector2( 2100, 1150 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enable = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 250.0
-margin_top = 700.0
-margin_right = 420.0
-margin_bottom = 760.0
+margin_left = 650.0
+margin_top = 150.0
+margin_right = 1070.0
+margin_bottom = 210.0
 theme = ExtResource( 5 )
-text = "Quick!"
+text = "Choose Wisely..."
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
